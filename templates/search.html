@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Canvas</title>
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="{% static "css/home.css" %}" rel="stylesheet">
+    
+  </head>
+<body>
+    <div class="container">
+      <header class="blog-header py-3">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-8 pt-1">
+            <a class="blog-header-logo text-dark" href="/">Content Canvas</a>
+          </div>
+          <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="btn btn-sm btn-warning" href="{% url "loginpage" %}">Login</a> &nbsp;
+            <a class="btn btn-sm btn-outline-secondary" href="{% url "Register" %}">Register</a>
+          </div>
+        </div>
+      </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+          {% for i in categories %}
+            <a class="p-2 text-muted" href="{% url "categories" i.cname %}">{{i.cname}}</a>
+          {% endfor %}
+          
+        </nav>
+      </div>
+ <h2>Search - {{keyword}}</h2>
+      
+<div class="row mb-2">
+    {% for blog in blogs %}
+        <div class="col">
+          <div class="card border-0" >
+            <div class="card-body">
+            <h3><a href="{% url "single_blog" blog.slug %}">{{blog.title}}</a></h3>
+            <small class="mb-1 text-muted">{{blog.created_at}} | {{blog.author}}</small>
+            <p class="card-text">{{blog.short_description}}</p>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+
+</html>
