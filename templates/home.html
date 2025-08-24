@@ -36,7 +36,7 @@
             <a class="btn btn-sm btn-warning" href="{% url "loginpage" %}">Login</a> &nbsp;
             <a class="btn btn-sm btn-outline-secondary" href="{% url "Register" %}">Register</a>
             {% else %}
-            <span class="pr-2">You logged in as <span class="text-success">{{user}}</span></span>
+            <span class="pr-2">You logged in as <span class="text-success"><i class="bi bi-person-circle"></i>{{user}}</span></span>
             <a class="btn btn-sm btn-danger" href="{% url "logout" %}">LogOut</a>
             {% endif %}
           </div>
@@ -117,8 +117,8 @@
         <div class="p-3">
           <h4 class="font-italic">Follow Us</h4>
           <ol class="list-unstyled">
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">LinkedIn</a></li>
+            <li><a href="https://www.github.com/EZHILARASAN24" target="_blank" >GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/ezhilarasan-ai" target="_blank">LinkedIn</a></li>
           </ol>
         </div>
       </aside><!-- /.blog-sidebar -->
